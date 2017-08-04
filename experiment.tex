@@ -10,13 +10,13 @@ The second 24-frame sequence was a different clip of the face starting in the FA
 using dynamic time warping on the audio sequences to align the video sequences, as was done in ~\cite{olszewski2016high}. We plan to release this synchronized, high-resolution dataset to the public in the future. 
 
 After aligning the sequences, we used a face-tracking and texture extraction process based on the formulation of ~\cite{f2f}, to compute a texture
-for each of the aligned video frames.  Our total training dataset consists of a set of 15 identities, each with 3107 frames.
+for each of the aligned video frames. Our total dataset consists of a set of 15 identities, each with 3107 frames. We use 12 of these for training our network and withhold 3 for validation. We also captured additional subjects used for generating the final results and performing quantitative evaluation (see Results below).
 
 \subsection{Data Augmentation}
 In order to increase the generalization ability of our network to subjects whose appearance varies significantly from those in this dataset, we augment it by altering the skin tones of the captured textures. Specifically, we extract lighting-independent and expression-free albedos from the texture images.
 We then perform PCA on the albedo images. To each albedo image, we add multiples of the found principal components with magnitudes proportional to the corresponding eigenvalues multiplied with a random variable drawn from a Gaussian with mean zero and standard deviation 0.1. This results in a new series of albedo images that differ from the original in their skin tone and local details.
 
-These albedo textures, combined with the unmodified captured albedo textures, are used as the training data for our network. We generate 15 additonal albedo textures from each of the 15 subjects, giving us a total of 745,680 training images.
+These albedo textures, combined with the unmodified captured albedo textures, are used as the training data for our network. We generate 15 additonal albedo textures from each subject, giving us a total of 559,260 training images from the 12 training subjects.
 
 \subsection{Training and Testing}
 
