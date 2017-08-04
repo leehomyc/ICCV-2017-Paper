@@ -67,9 +67,7 @@ The core of our dynamic texture synthesis pipeline for inferring fine details is
 Broadly speaking, a Generative Adversarial Network (GAN) $G$ is a function which produces ``realistic'' output from a noise vector.  
 That is, given a distribution $M$, a variable $z \sim M$, and a set of ground truth ``real'' examples $X$,  we would like $G(z)$ to be indistinguishable between 
 any $x \sim X$.  Formally, by indistinguishable we mean to say that the generator function fools as best as possible a discriminator function, $D$, 
-trained precisely to separate the generated output $G(z)$ from the real output drawn from $X$.  
-
-A conditional GAN, on the other hand, takes as input both the noise vector $z$, along with additional input $y$ in order to produce the output $x$.    
+trained precisely to separate the generated output $G(z)$ from the real output drawn from $X$. A conditional GAN, on the other hand, takes as input both the noise vector $z$, along with additional input $y$ in order to produce the output $x$.    
 Notice that $y$ and $x$ are not necessarily from the same set.  
 
 In our setting, we attempt to learn a target texture deformation given a source texture deformation.  
