@@ -20,19 +20,4 @@ These albedo textures, combined with the unmodified captured albedo textures, ar
 
 \subsection{Training and Testing}
 
-\begin{figure}[h!]
-\setlength\tabcolsep{1.5pt}
-\centering
-\begin{tabular}{cc}
-
-\includegraphics[width=.22\textwidth]{figures/loss/ErrorG2.jpg}&
-\includegraphics[width=.22\textwidth]{figures/loss/ErrorD2.jpg} \\
-Generator Error & Discriminator Error \\ 
-\end{tabular}
-\caption{Generative and discriminative training loss.}\label{fig:error}
-\vspace{-0.05in}
-\end{figure} 
-
-
-
-We divide the dataset into a training set and a testing set. During training, we train the network in an end-to-end fashion. On each iteration, we randomly sample a pair consisting of a source expression frame and a target identity frame from the dataset as input. The corresponding ground truth texture combining the given identity and expression is also sampled. The output will be synthesized using a forward pass, and the loss is back-propagated using Adaptive Moment Estimation (ADAM). The images are scaled to $256 \times 256$ and we set each batch to contain 64 images. We trained the networks on a Titan X GPU until both the generative loss and discriminative loss converged, which took roughly two days (Fig.~\ref{fig:error}). We set the initial learning rate to $lr=2e-4$ for the generator and $lr=2e-5$ for the discriminator. The learning rate is lowered several times during training. During testing, we randomly sample a pair consisting of a source expression frame and a target identity frame from the test set.
+We divide the dataset into a training set and a testing set. During training, we train the network in an end-to-end fashion. On each iteration, we randomly sample a pair consisting of a source expression frame and a target identity frame from the dataset as input. The corresponding ground truth texture combining the given identity and expression is also sampled. The output will be synthesized using a forward pass, and the loss is back-propagated using Adaptive Moment Estimation (ADAM). The images are scaled to $256 \times 256$ and we set each batch to contain 64 images. We trained the networks on a Titan X GPU until both the generative loss and discriminative loss converged, which took roughly two days (the training and validation loss diagrams can be found in the supplementary material). We set the initial learning rate to $lr=2e-4$ for the generator and $lr=2e-5$ for the discriminator. The learning rate is lowered several times during training. During testing, we randomly sample a pair consisting of a source expression frame and a target identity frame from the test set.
