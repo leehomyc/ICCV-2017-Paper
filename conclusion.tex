@@ -1,0 +1,15 @@
+% \vfill\eject
+
+\section{Discussion}
+
+We present a method of generating realistic video sequences of faces from a single photograph 
+which can then be used to replace the face of a source/driver video sequence. 
+To the best of our knowledge, our method is the first
+to leverage GANs to produce realistic, high-resolution dynamic textures from a single target input image to be used for rendering.  
+
+\paragraph{Limitations and Future Work}
+Though we are able to infer dynamic textures, the input target face is assumed to be without extreme specular lighting and/or pronounced shadowing. Otherwise, the texture extraction phase following ~\cite{f2f} will produce artifacts. As fitting the facial geometry precisely from a single viewpoint is a highly underconstrained problem, the extracted texture of the target subject may be improperly registered in extreme cases in which this fitting is insufficiently accurate. We believe that it is possible to address these issues with a more robust multilinear fitting, which takes greater account of specular lighting, shadowing, shading, and variation in the subject's appearance.
+
+The resolution of the single image of the target must be sufficiently high resolution in order to generate appropriate details for the corresponding expressions. Furthermore, as we rely on ~\cite{f2f} to extract the target subject's facial texture and geometry, an image in which the face is largely non-frontal or partially occluded will result in incomplete or incorrect textures being extracted and, thereby causing artifacts in the generated textures.  We believe it is possible to improve upon these aspects as well, as we have seen in ~\cite{saito2016} that it is possible to infer high resolution textures from partially occluded lower resolution images.  
+
+Limited variation of appearance in the training corpus is also an issue.  Though the data augmentation mitigates this, the generated wrinkles and deformations will not be as sharp or as strong when the target's appearance varies greatly from those in our dataset.  However, we believe that having a larger dataset with even greater appearance variations would resolve this issue.

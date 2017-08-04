@@ -1,0 +1,88 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{iccv}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{authblk}
+\usepackage[symbol*]{footmisc}
+\DeclareMathOperator{\E}{\mathbb{E}}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+\iccvfinalcopy % *** Uncomment this line for the final submission
+
+\def\iccvPaperID{2685} % *** Enter the ICCV Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ificcvfinal\pagestyle{empty}\fi
+\begin{document}
+
+%%%%%%%%% TITLE
+%\title{Realistic Video Face Retargeting Using Conditional Generative Adversarial Networks}
+% \title{Animating Realistic Dynamic Facial Textures from a Single Image using GANs}
+\title{Realistic Dynamic Facial Textures from a Single Image using GANs}
+%\title{Animating Realistic Dynamic Facial Textures using Generative Adversarial Networks}
+
+%\author{First Author\\
+%USC\\
+%USC address\\
+%{\tt\small firstauthor@i1.org}
+%% For a paper whose authors are all at the same institution,
+%% omit the following lines up until the closing ``}''.
+%% Additional authors and addresses can be added with ``\and'',
+%% just like the second author.
+%% To save space, use either the email address or home page, not both
+%\and
+%Second Author\\
+%Institution2\\
+%First line of institution2 address\\
+%{\tt\small secondauthor@i2.org}
+%}
+
+\author[1,3,4]{Kyle Olszewski\thanks{olszewski.kyle@gmail.com (equal contribution)}}
+\author[1]{Zimo Li\thanks{zimoli@usc.edu (equal contribution)}}
+\author[1]{Chao Yang \thanks{harryyang.hk@gmail.com (equal contribution)}}
+\author[1]{Yi Zhou\thanks{zhou859@usc.edu}}
+\author[1,3]{Ronald Yu\thanks{ronaldyu@usc.edu}}
+\author[1]{Zeng Huang\thanks{zenghuan@usc.edu}}
+\author[1]{Sitao Xiang\thanks{sitaoxia@usc.edu}}
+\author[1,3]{Shunsuke Saito\thanks{shunsuke.saito16@gmail.com}}
+\author[2]{Pushmeet Kohli\thanks{pkohli@microsoft.com}}
+\author[1,3,4]{Hao Li\thanks{hao@hao-li.com}}
+\affil[1]{University of Southern California}
+\affil[2]{Microsoft Research}
+\affil[3]{Pinscreen}
+\affil[4]{USC Institute for Creative Technologies}
+
+\maketitle
+%\thispagestyle{empty}
+
+\begin{abstract}
+
+We present a novel method to realistically puppeteer and animate a face from a single RGB image using a source video sequence. We begin by fitting a multilinear PCA model to obtain the 3D geometry and a single texture of the target face. In order for the animation to be realistic, however, we need dynamic per-frame textures that capture subtle wrinkles and deformations corresponding to the animated facial expressions.  This problem is highly underconstrained, as dynamic textures cannot be obtained directly from a single image. Furthermore, if the target face has a closed mouth, it is not possible to obtain actual images of the mouth interior. To address this issue, we train a Deep Generative Network that can infer realistic per-frame texture deformations, including the mouth interior, of the target identity using the per-frame source textures and the single target texture. By retargeting the PCA expression geometry from the source, as well as using the newly inferred texture, we can both animate the face and perform video face replacement on the source video using the target appearance.
+
+\end{abstract}
+
+\input{intro}
+\input{related_work}
+\input{algorithm}
+\input{experiment}
+\input{results}
+\input{conclusion}
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{iccv}
+}
+
+\end{document}
