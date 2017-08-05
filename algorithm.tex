@@ -90,11 +90,11 @@ L_{GAN}(G,D)& = E_{{x,y}\sim p_{data}({x,y}),z\sim p_z{z}}[\log D({t})]\\
 \end{equation}
 
 In our formulation, $x$ is the pair $(U_{source}, N_{target})$ and $y$ is given by $U_{target}$.  
-In addition to this energy, the generator $G$ also attempts to minimize the reconstruction loss to the target $y$ in the L1 sense.  
+In addition to this energy, the generator $G$ also attempts to minimize the reconstruction loss to the target $y$ in the $\ell_1$ sense.  
 That is, $L_{recon}(G)= E[\parallel y-G({x,y},z)\parallel_1]$ ~\cite{pix2pix}.
 
 $G$ attempts to minimize this objective while $D$ attempts to maximize it.  In other words:
-$ G_{opt}=\text{arg}\min\max L_{cGAN}(G,D)+\lambda L_{L1}(G)$, where $\mu$ 
+$ G_{opt}=\text{arg}\min\max L_{cGAN}(G,D)+\lambda L_{\ell_1}(G)$, where $\mu$ 
 encodes the relative weighting of the different errors ~\cite{pix2pix}.  In our implementation of the conditional GAN, 
 we do not input any noise during generation, but otherwise the optimization program is accurate.  We set $\mu = 0.001$ in all experiments. 
 This parameter can be viewed as a balancing between the need to reconstruct accurate wrinkles with the need to have the final texture
@@ -149,7 +149,7 @@ E(w)& = \sum_p \min (||s_1(p) − s_2(p + w(p))||_1, t)  \\
 \end{equation}
 The terms in the equation are, in order, the data term, the small displacement term, and the spatial regularization term ~\cite{sift}, 
 where $w(p) = (u(p), v(p))$ is the flow vector at a point $p = (x,y)$, and $s_1$ and $s_2$ are the sift features
-compunted for either image 1 or image 2 at the point $p$.  The second and third term regularize the matching by pushing
+computed for either image 1 or image 2 at the point $p$.  The second and third term regularize the matching by pushing
 nearby points to get mapped to each other.
 
 Inferring the inner mouth also has the added benefit of improving the lip texture around the mouth during tracking failure of the original video: tracking of tight-lipped
@@ -170,7 +170,7 @@ kissing faces on the target even when lip tracking fails on the source.
 
 Once we have the per-frame textures and retargeted mesh, we are also able to transfer the target appearance back onto the source video
 sequence for a detailed and realistic animation (Fig.~\ref{fig:blend}). We use a graph-cut approach similar to ~\cite{replace} in order 
-to achieve this.  In particular, for blending the retargeted faces to the source video in a photorealistic manner,
+to achieve this.  In particular, for blending the retargeted faces to the source video in a photo-realistic manner,
 we first find a graph-cut to partition each frame into two regions, which determines whether 
 a pixel comes from the frame in the source video or the image of the rendered retargeted face model(Fig.~\ref{fig:blend}a-c). 
 We then linearly blend the target and source regions of the images along the seam to achieve a smooth and realistic result (Fig.~\ref{fig:blend}d).
@@ -195,7 +195,7 @@ and temporal coherence between frames.
 
 If we naively project the mesh back onto the frame of the source video, as seen in the left-hand image of Fig~\ref{fig:blend}b, the result is not smooth or realistic. 
 In order to maintain spatial coherence across large variations in pose and expression, 
- we construct a graph-cut problem on each of the frames in the source video and their corresponding retargeted mesh as in ~\cite{graphcut}. For each frame, the graph cut algorithm labels each vertex on the mesh as either a source vertex or target vertex in a manner that minimizes the difference in pixel values across neighboring vertices, as shown on the right-hand image of Fig.~\ref{fig:blend}b. We then project the seam of the labeled mesh onto the image (Fig.~\ref{fig:blend}c). 
+ we construct a graph-cut problem on each of the frames in the source video and their corresponding retargeted mesh as in ~\cite{graphcut}. For each frame, the graph cut algorithm labels each vertex on the mesh as either a source vertex or target vertex in a manner that minimizes the difference in pixel values across neighboring vertices as shown on the right-hand image of Fig.~\ref{fig:blend}b. We then project the seam of the labeled mesh onto the image (Fig.~\ref{fig:blend}c). 
 
 The nodes of the graph represent the vertices on the mesh for each frame in the source video. 
 Let each vertex be denoted as $V_{t,i}$, where $t$ refers to the $t$th frame, and $i$ refers to the $i$th vertex on the mesh. 
