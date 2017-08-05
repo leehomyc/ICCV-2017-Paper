@@ -26,7 +26,7 @@ We model the face shape $S$ and albedo as a multilinear PCA model with $n = 53k$
 S(\beta_{id}, \beta_{exp}) = \hat{S} + B_{id}\beta_{id} + B_{exp} \beta_{exp}
 \end{equation}
 \begin{equation}
-I(\alpha_{alb}) = \hat{I} + A_{alb} * \alpha_{alb}
+I(\alpha_{alb}) = \hat{I} + A_{alb} \cdot \alpha_{alb}
 \end{equation}
 The identity and expression are represented as a multivariate normal distribution with $B_{id} \in \mathbf{R}^{3n \times 80} $, $B_{exp} \in \mathbf{R}^{3n \times 29}$ and $A_{alb} \in \mathbf{R}^{3n \times 80}$.  The dimensions of the mean shape are $\hat{S} = \hat{S}_{id} + \hat{S}_{exp} \in \mathbf{R}^{3n}$, and the mean albedo is given by $\hat{I} \in \mathbf{R}^{3n}$.  The standard deviations are given by: $\sigma_{id} \in \mathbf{R}^{80}$, $\sigma_{exp} \in \mathbf{R}^{29}$ and $\sigma_{alb} \in \mathbf{R}^{80}$.
 
