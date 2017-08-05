@@ -170,7 +170,7 @@ kissing faces on the target even when lip tracking fails on the source.
 
 Once we have the per-frame textures and retargeted mesh, we are also able to transfer the target appearance back onto the source video
 sequence for a detailed and realistic animation (Fig.~\ref{fig:blend}). We use a graph-cut approach similar to ~\cite{replace} in order 
-to achieve this.  In particular, for blending the retargeted faces to the source video in a photo-realistic manner,
+to achieve this.  In particular, for blending the retargeted faces to the source video in a photorealistic manner,
 we first find a graph-cut to partition each frame into two regions, which determines whether 
 a pixel comes from the frame in the source video or the image of the rendered retargeted face model(Fig.~\ref{fig:blend}a-c). 
 We then linearly blend the target and source regions of the images along the seam to achieve a smooth and realistic result (Fig.~\ref{fig:blend}d).
@@ -195,7 +195,7 @@ and temporal coherence between frames.
 
 If we naively project the mesh back onto the frame of the source video, as seen in the left-hand image of Fig~\ref{fig:blend}b, the result is not smooth or realistic. 
 In order to maintain spatial coherence across large variations in pose and expression, 
- we construct a graph-cut problem on each of the frames in the source video and their corresponding retargeted mesh as in ~\cite{graphcut}. For each frame, the graph cut algorithm labels each vertex on the mesh as either a source vertex or target vertex in a manner that minimizes the difference in pixel values across neighboring vertices as shown on the right-hand image of Fig.~\ref{fig:blend}b. We then project the seam of the labeled mesh onto the image (Fig.~\ref{fig:blend}c). 
+ we construct a graph-cut problem on each of the frames in the source video and their corresponding retargeted mesh as in ~\cite{graphcut}. For each frame, the graph cut algorithm labels each vertex on the mesh as either a source vertex or target vertex in a manner that minimizes the difference in pixel values across neighboring vertices, as shown on the right-hand image of Fig.~\ref{fig:blend}b. We then project the seam of the labeled mesh onto the image (Fig.~\ref{fig:blend}c). 
 
 The nodes of the graph represent the vertices on the mesh for each frame in the source video. 
 Let each vertex be denoted as $V_{t,i}$, where $t$ refers to the $t$th frame, and $i$ refers to the $i$th vertex on the mesh. 
