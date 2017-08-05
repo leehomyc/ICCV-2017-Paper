@@ -2,18 +2,16 @@
 
 \section{Discussion}
 
-We present a method of generating realistic video sequences of faces from a single photograph 
-which can then be used to replace the face of a source/driver video sequence. 
-To the best of our knowledge, our method is the first
-to leverage GANs to produce realistic, high-resolution dynamic textures from a single target input image to be used for rendering.  
+We present a method to generate realistic video sequences of faces from a single photograph 
+which can then be used to replace the face of a source/driver video sequence. To the best of our knowledge, our method is the first to leverage GANs to produce realistic, dynamic textures of a subject from a single target image.
 
 \paragraph{Limitations and Future Work}
 Though we are able to infer dynamic textures, the input target face is assumed to be without extreme specular lighting and/or pronounced shadowing. If present, thse can cause the texture extraction phase following ~\cite{f2f} to produce artifacts. As fitting the facial geometry precisely from a single viewpoint is a highly underconstrained problem, the extracted texture of the target subject may be improperly registered in extreme cases in which this fitting is insufficiently accurate. Other issues resulting from imperfect fitting include missing transient expressions, such as blinking. We believe that it is possible to address these issues with a more robust multilinear fitting, which takes greater account of specular lighting, shadowing, shading, and variation in the subject's appearance.   
 
-The resolution of the single image of the target must be sufficiently high resolution in order to generate appropriate details for the corresponding expressions. Furthermore, as we rely on the method of~\cite{f2f} to extract both the source and target textures, if either is largely non-frontal/occluded, the textures will be incomplete which causes artifacts in the synthesis.  Our method produces reasonable results in the non-occluded regions, but cannot synthesize unseen parts. However, this problem can be addressed by applying the method of ~\cite{saito2016} to infer the invisible face regions before completing the detail transfer.  For these reasons, compositing for non-frontal views will not be as realistic.  We have additional non-frontal synthesis and retargeting results in the supplementary materials.  
+The target image must be sufficiently high resolution to generate appropriate details for the corresponding expressions. Furthermore, as we rely on the method of~\cite{f2f} to extract the source and target textures, if either is largely non-frontal/occluded, the textures will be incomplete which causes artifacts in the synthesis.  Our method produces reasonable results in the non-occluded regions, but cannot synthesize unseen parts. This problem can be addressed by applying~\cite{saito2016} to infer the invisible face regions before completing the detail transfer. While our compositing process assumes that both the source and target are front-facing, additional non-frontal synthesis and retargeting results without compositing are in the supplementary materials.  
 
 
-Limited variation of appearance in the training corpus is also an issue.  Though the data augmentation mitigates this, the generated wrinkles and deformations will not be as sharp or as strong when the target's appearance varies greatly from those in our dataset.  However, we believe that having a larger dataset with even greater appearance variations would resolve this issue. Finally, we note that the method solves for each frame of animation independently, and so can potentially result in temporal incoherency, e.g. flickering.  We can accomodate for this in future work by solving for multiple frames simultaneously, or by applying temporal smoothing in a post-processing step.  
+Limited appearance variation in the training corpus is also an issue.  Though the data augmentation mitigates this, the generated wrinkles and deformations will not be as sharp or as strong when the target's appearance varies greatly from those in our dataset. We believe that having a larger dataset with even greater appearance variations would resolve address this. Finally, we note that the method solves for each frame of animation independently, and so can potentially result in minor temporal incoherency.  We can address this in future work by solving for multiple frames simultaneously, or by applying temporal smoothing in a post-processing step.  
 
-\vfill\eject
+% \vfill\eject
 
