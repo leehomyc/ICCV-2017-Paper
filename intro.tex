@@ -1,6 +1,6 @@
 \section{Introduction}
 
-Many methods have been developed in recent years to realistically render and animate faces that are then combined with real images. Such techniques have a variety of applications, ranging from special effects for film and television to the recent and controversial phenomenon of real images and videos of prominent public figures being surreptitiously modified to create ``fake news.'' Recent efforts towards achieving such capabilities include, but are not limited to, video rewriting ~\cite{rewrite}, face replacement ~\cite{replace}, and real-time video reenactment \cite{f2f}. Though the aforementioned works achieve many of their stated goals, they require a video of the target subject whose face is to be modified as input.  
+Many methods have been developed in recent years to realistically render and animate faces that are then combined with real images. Such techniques have a variety of applications, ranging from special effects for film and television to the recent and controversial phenomenon of real images and videos of prominent public figures being surreptitiously modified to create ``fake news.'' Recent efforts towards achieving such capabilities include, but are not limited to, video rewriting~\cite{rewrite}, face replacement~\cite{replace}, and real-time video reenactment \cite{f2f}. Though the aforementioned works achieve many of their stated goals, they require a video of the target subject whose face is to be modified as input.  
 Thus, they cannot be used for target subjects for whom high resolution video sequences do not exist and are unobtainable.
 
 A naive approach would be to simply fit a 3D mesh to the face of the target subject in the image, and animate it using the expressions of another person (whom we call the ``driver''), using the 
@@ -13,7 +13,7 @@ impossible to directly tell the type of wrinkles that form under different expre
 To address this, we employ deep learning to infer the dynamic texture deformations necessary for a realistic animation.  In particular, we leverage the power of the recently popularized Generative Adversarial Framework \cite{gan} in order to infer realistic and high-resolution texture deformations transferred from a sequence of source expression textures to a target identity texture.  These texture deformations include the inference of the inner mouth and teeth, which are included in the texture training data.  After inferring the mouth, we refine it using optical flow from the source video's mouth region.
 
 After learning texture deformations, we are able to re-render a face with realistic wrinkling, expressions, and teeth using the source video, 
-as well as compositing the newly rendered appearance back onto the source video to replace the original actor using the schema of ~\cite{replace}.  This is, to the best of our knowledge, the first time realistic animation and video compositing has been achieved using only a single target image. 
+as well as compositing the newly rendered appearance back onto the source video to replace the original actor using the schema of~\cite{replace}.  This is, to the best of our knowledge, the first time realistic animation and video compositing has been achieved using only a single target image. 
 Our contributions are summarized as follows:
 
 % \vfill\eject
@@ -21,5 +21,5 @@ Our contributions are summarized as follows:
 \begin{enumerate}
 \item We propose a novel framework to generate realistic dynamic textures using a conditional generative adversarial network to infer detailed deformations in texture space such as blinking, teeth, tongue, wrinkles, and lip motion from a single image.
 \item Our system can composite the target face image onto the faces in the source videos with new realistic appearances.
-\item We introduce a dataset of synchronized, high-resolution (1920x1080) videos of captured subjects with varying facial appearances saying the Harvard Sentences ~\cite{HarvardSent:1969} and making a set of facial expressions based on the Facial Action Coding System (FACS) ~\cite{Ekman:1978}. We plan to release this dataset to the public in the future.
+\item We introduce a dataset of synchronized, high-resolution (1920x1080) videos of captured subjects with varying facial appearances saying the Harvard Sentences~\cite{HarvardSent:1969} and making a set of facial expressions based on the Facial Action Coding System (FACS)~\cite{Ekman:1978}. We plan to release this dataset to the public in the future.
 \end{enumerate}

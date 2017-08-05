@@ -21,22 +21,6 @@ An example of methods like \cite{f2f} that do not use our inference model, there
 
 To further validate our approach, we performed quantitative evaluation against an alternative, more direct approach to dynamic texture synthesis. Given an image of the source subject making a facial expression and a and neutral frame of the same subject, we apply the difference between these two images to the neutral frame of the target subject. We performed this test for 20 expression sequences, each 900 frames long, in which each of 5 test subjects are retargeted to one another. The test sequences have been synchronized in the same manner as the training data, thereby providing ground truth expressions for each retargeted sequence. The results, shown in Table ~\ref{table:paris}, demonstrate that our method synthesizes textures that are closer to the ground truth texture data. Furthermore, we note that while this more naive approach to texture synthesis (which we call ``direct delta transfer'') is simpler to implement and can synthesize wrinkles and other details on the target subject, simply applying these differences to the target subject does not account for geometric dissimilarity in the faces of the subjects, and thus it typically generates results that are far more uncanny and implausible than our approach.
 
-%% \paragraph{Composition: Comparison To Previous Works}
-
-%% \cite{replace} is currently the state-of-the-art with respect to face composition, and their results are shown in Fig.~\ref{replaceres}. Our results for composition in Fig.~\ref{fig:result} are comparable to theirs, but we only need a single target image as input while they need a video sequence.
-
-%% \begin{figure}[th]
-%% \begin{center}
-%%    \includegraphics[height=90px]{figures/results/daleaa.png}
-%%    \includegraphics[height=88px]{figures/results/dalebb.png}
-%% \end{center}
-%%    \caption{\protect\cite{replace} takes two video inputs and can do face replacement as shown in this figure. Our results are comparable to the results in this figure, but we are only using a single target image as input. Furthermore, \protect\cite{replace} cannot handle only a single target image as input.}
-%%    \vspace{-0.05in}
-%% \label{replaceres}
-%% \end{figure}
-
-% TODO: reference to the table. Did we take average over all the images? The names of the
-% methods in the table should be fleshed out. The caption should be fleshed out.
 \begin{table}[h!]
 \begin{center}
 \resizebox{.45\textwidth}{!}{%
