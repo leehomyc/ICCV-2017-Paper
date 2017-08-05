@@ -13,7 +13,7 @@ impossible to directly tell the type of wrinkles that form under different expre
 To address this, we employ deep learning to infer the dynamic texture deformations necessary for a realistic animation.  In particular, we leverage the power of the recently popularized Generative Adversarial Framework \cite{gan} in order to infer realistic and high-resolution texture deformations transferred from a sequence of source expression textures to a target identity texture.  These texture deformations include the inference of the inner mouth and teeth, which are included in the texture training data.  After inferring the mouth, we refine it using optical flow from the source video's mouth region.
 
 After learning texture deformations, we are able to re-render a face with realistic wrinkling, expressions, and teeth using the source video, 
-as well as compositing the newly rendered appearance back onto the source video to replace the original actor using the schema of ~\cite{replace}.  This is, to the best of our knowledge, the first time realisitic animation and video compositing has been achieved using only a single target image. 
+as well as compositing the newly rendered appearance back onto the source video to replace the original actor using the schema of ~\cite{replace}.  This is, to the best of our knowledge, the first time realistic animation and video compositing has been achieved using only a single target image. 
 Our contributions are summarized as follows:
 
 % \vfill\eject
