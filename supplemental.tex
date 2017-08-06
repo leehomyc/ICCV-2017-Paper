@@ -7,6 +7,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
+\usepackage{authblk}
+\usepackage{placeins}
+\usepackage[symbol*]{footmisc}
 \DeclareMathOperator{\E}{\mathbb{E}}
 
 % Include other packages here, before hyperref.
@@ -29,6 +32,21 @@
 %\title{Realistic Video Face Retargeting Using Conditional Generative Adversarial Networks}
 % \title{Animating Realistic Dynamic Facial Textures from a Single Image using GANs}
 \title{Realistic Dynamic Facial Textures from a Single Image using GANs - Supplementary Material}
+
+\author[1,3,4]{Kyle Olszewski\thanks{olszewski.kyle@gmail.com (equal contribution)}}
+\author[1]{Zimo Li\thanks{zimoli@usc.edu (equal contribution)}}
+\author[1]{Chao Yang \thanks{harryyang.hk@gmail.com (equal contribution)}}
+\author[1]{Yi Zhou\thanks{zhou859@usc.edu}}
+\author[1,3]{Ronald Yu\thanks{ronaldyu@usc.edu}}
+\author[1]{Zeng Huang\thanks{zenghuan@usc.edu}}
+\author[1]{Sitao Xiang\thanks{sitaoxia@usc.edu}}
+\author[1,3]{Shunsuke Saito\thanks{shunsuke.saito16@gmail.com}}
+\author[2]{Pushmeet Kohli\thanks{pushmeet@google.com, project conducted while at MSR}}
+\author[1,3,4]{Hao Li\thanks{hao@hao-li.com}}
+\affil[1]{University of Southern California}
+\affil[2]{DeepMind}
+\affil[3]{Pinscreen}
+\affil[4]{USC Institute for Creative Technologies}
 %\title{Animating Realistic Dynamic Facial Textures using Generative Adversarial Networks}
 
 %% \author{First Author\\
@@ -48,7 +66,7 @@
 %% }
 
 \maketitle
-%\thispagestyle{empty}
+\thispagestyle{empty}
 
 \section{Additional Results and Evaluations}
 
@@ -87,6 +105,11 @@ While our implementation of the 3D face model fitting approach described in Sect
 \item Video face replacement (Section 6): 4.5 seconds.
 \end{enumerate}
 
+\section{Acknowledgements}
+
+First, we would like to thank all participants who were videotaped. This research is supported in part by Adobe, Oculus \& Facebook, Huawei, Sony, the Google Faculty Research Award, the Okawa Foundation Research Grant, and the U.S. Army Research Laboratory (ARL) under contract W911NF-14-D-0005. The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of ARL or the U.S. Government. The U.S. Government is authorized to reproduce and distribute reprints for Governmental purpose notwithstanding any copyright annotation thereon. 
+
+\clearpage
 %% \paragraph{}
 
 %% \section{}
@@ -163,8 +186,6 @@ Generator Error & Discriminator Error \\
 \label{fig:compositenew}
 \end{figure*}
 
-\section{Acknowledgements}
 
-First, we would like to thank all participants who were videotaped. This research is supported in part by Adobe, Oculus \& Facebook, Huawei, Sony, the Google Faculty Research Award, the Okawa Foundation Research Grant, and the U.S. Army Research Laboratory (ARL) under contract W911NF-14-D-0005. The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of ARL or the U.S. Government. The U.S. Government is authorized to reproduce and distribute reprints for Governmental purpose notwithstanding any copyright annotation thereon. 
 
 \end{document}
