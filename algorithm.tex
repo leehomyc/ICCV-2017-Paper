@@ -84,19 +84,19 @@ Note that neural networks are inclined to be heavily affected by noise and varia
 The energy function we minimize is given by 
 \begin{equation} \label{eqn:1}
 \begin{split}
-L_{GAN}(G,D)& = E_{{x,y}\sim p_{data}({x,y}),z\sim p_z{z}}[\log D({t})]\\
+L_{cGAN}(G,D)& = E_{{x,y}\sim p_{data}({x,y}),z\sim p_z{z}}[\log D({x,y})]\\
 & +E_{{x,y}\sim p_{data}(x),z\sim p_z(z)}[\log(1-D(G(x,z)))] 
 \end{split}
 \end{equation}
 
 In our formulation, $x$ is the pair $(U_{source}, N_{target})$ and $y$ is given by $U_{target}$.  
 In addition to this energy, the generator $G$ also attempts to minimize the reconstruction loss to the target $y$ in the $\ell_1$ sense.  
-That is, $L_{recon}(G)= E[\parallel y-G({x,y},z)\parallel_1]$ ~\cite{pix2pix}.
+That is, $L_{\ell_1}(G)= E[\parallel y-G(x,z)\parallel_1]$ ~\cite{pix2pix}.
 
 $G$ attempts to minimize this objective while $D$ attempts to maximize it.  In other words:
-$ G_{opt}=\text{arg}\min\max L_{cGAN}(G,D)+\lambda L_{\ell_1}(G)$, where $\mu$ 
+$ G_{opt}=\text{arg}\min\max L_{cGAN}(G,D)+\lambda L_{\ell_1}(G)$, where $\lambda$ 
 encodes the relative weighting of the different errors ~\cite{pix2pix}.  In our implementation of the conditional GAN, 
-we do not input any noise during generation, but otherwise the optimization program is accurate.  We set $\mu = 0.001$ in all experiments. 
+we do not input any noise during generation, but otherwise the optimization program is accurate.  We set $\lambda = 0.001$ in all experiments. 
 This parameter can be viewed as a balancing between the need to reconstruct accurate wrinkles with the need to have the final texture
 remain "realistic".  
 
